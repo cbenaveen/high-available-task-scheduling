@@ -1,0 +1,9 @@
+{
+  "namespace": "org.cbenaveen.task.scheduling",
+  "type": "record",
+  "name": "TaskFrequency",
+  "fields": [
+    {"name": "frequencyTimeUnit", "type": "TaskFrequencyTimeUnits"},
+    {"name": "time", "type": "int"}
+  ]
+}

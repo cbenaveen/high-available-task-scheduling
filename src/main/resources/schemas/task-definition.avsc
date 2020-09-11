@@ -1,0 +1,17 @@
+{
+  "namespace": "org.cbenaveen.task.scheduling",
+  "type": "record",
+  "name": "TaskDefinition",
+  "fields": [
+    {"name": "customerId","type": "string"},
+    {"name": "taskName","type": "string"},
+    {"name": "frequency","type": ["null", "TaskFrequency"], "default": null},
+    {"name": "config", "type": "TaskConfiguration"},
+    {"name": "data","type": [ "null",
+      {
+        "type": "map",
+        "values": "string"
+      }
+    ], "default": null}
+  ]
+}

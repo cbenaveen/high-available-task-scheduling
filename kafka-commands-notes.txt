@@ -1,0 +1,38 @@
+Destroy Cluster and Start Fresh:
+=================================
+    confluent local destroy && confluent local services start
+
+To List Topic:
+================
+    kafka-topics --bootstrap-server localhost:9092 --list
+
+To Create Topic:
+================
+    Source Topic:
+    ==============
+        kafka-topics --create --topic task_schedules --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+
+    Target Topics:
+    ===============
+        kafka-topics --create --topic task-generate-random-numbers --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic poll-google-maps-api --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic poll-twitter-api --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic poll-github-api --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic remove-deleted-users-from-db --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic purge-unwanted-messages --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic compress-s3-images --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic remove-duplicate-s3-contents --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic upload-stats-to-datadog --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic regular-api-sanity-checks --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+        kafka-topics --create --topic poll-api --bootstrap-server localhost:9092 --partitions 16 --replication-factor 1
+
+
+To Reset Kafka Streams app to read from beginning:
+==================================================
+    Perform a dry run:
+    ===================
+    kafka-streams-application-reset --bootstrap-servers localhost:9092 --application-id task-schedule-streaming-app --input-topics task_schedules --dry-run
+
+    Perform Reset:
+    ==============
+    kafka-streams-application-reset --bootstrap-servers localhost:9092 --application-id task-schedule-streaming-app --input-topics task_schedules

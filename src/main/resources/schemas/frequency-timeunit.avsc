@@ -1,0 +1,6 @@
+{
+  "namespace": "org.cbenaveen.task.scheduling",
+  "type": "enum",
+  "name": "TaskFrequencyTimeUnits",
+  "symbols": ["MILLISECONDS", "SECONDS", "MINUTES", "HOURS", "DAYS", "WEEKS"]
+}

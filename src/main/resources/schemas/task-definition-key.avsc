@@ -1,0 +1,9 @@
+{
+  "namespace": "org.cbenaveen.task.scheduling",
+  "type": "record",
+  "name": "TaskDefinitionKey",
+  "fields": [
+    {"name": "customerId","type": "string"},
+    {"name": "taskName","type": "string"}
+  ]
+}

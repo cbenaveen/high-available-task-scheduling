@@ -1,0 +1,9 @@
+{
+  "namespace": "org.cbenaveen.task.scheduling",
+  "type": "record",
+  "name": "TaskConfiguration",
+  "fields": [
+    {"name": "outputTopic","type": "string"},
+    {"name": "configurations","type": [  "null",  {    "type": "map",    "values": "string"  }],"default": null}
+  ]
+}
